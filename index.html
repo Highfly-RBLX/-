@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Highfly | Roblox Game and Community</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('Image-Background.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 1rem;
+      text-align: center;
+      animation: fadeIn 2s ease-in;
+    }
+
+    header img {
+      max-width: 150px;
+      height: auto;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      color: #FFD700;
+      animation: slideDown 2s ease-out;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    nav {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav a {
+      display: inline-block;
+      background: #DAA520;
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+      padding: 0.7rem 1.5rem;
+      border-radius: 15px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background: #B8860B;
+      transform: scale(1.1);
+    }
+
+    section {
+      margin: 2rem;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 15px;
+      animation: fadeIn 2s ease-in;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: #FFD700;
+    }
+
+    section p {
+      font-size: 1rem;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.8rem 1.7rem;
+      background: #DAA520;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 15px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background: #B8860B;
+      transform: scale(1.1);
+    }
+
+    footer {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    #mute-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      border: none;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      z-index: 1000;
+    }
+
+    #mute-btn:hover {
+      background-color: #FFD700;
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-20px); }
+      to { transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <audio id="background-music" loop>
+    <source src="Music-Background.mp3" type="audio/mpeg" />
+  </audio>
+
+  <audio id="click-sound">
+    <source src="Sound-Click.mp3" type="audio/mpeg" />
+  </audio>
+
+  <button id="mute-btn" onclick="toggleMute()">🔊</button>
+
+  <header>
+    <img src="Image-Header.png" alt="Icon">
+    <div>
+      <h1>Highfly</h1>
+      <p>Explore the Trampoline Park called Highfly Today!!</p>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#about" onclick="playClickSound()">About</a>
+    <a href="https://discord.com/invite/WQUaHFeyvC" onclick="playClickSound()">Discord</a>
+    <a href="https://www.roblox.com/communities/35000132/HighFly-Corporation#!/about" onclick="playClickSound()">Roblox Group</a>
+    <a href="https://www.youtube.com/@Highfly-RBLX" onclick="playClickSound()">YouTube</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Highfly</h2>
+    <p>Highfly is an innovative and dynamic Roblox group dedicated to providing players with immersive and collaborative roleplay adventures. From unique scenarios to engaging community events, Highfly is the place to thrive and connect.</p>
+  </section>
+
+  <section>
+    <h2>Join Our Discord</h2>
+    <p>Join our community of passionate players to exchange ideas, share strategies, and stay in the loop with everything Highfly. Our Discord server is the central hub for all things Highfly</p>
+    <a href="https://discord.com/invite/WQUaHFeyvC" class="button" onclick="playClickSound()">Join Discord</a>
+  </section>
+
+  <section>
+    <h2>Join Our Roblox Group</h2>
+    <p>Be a part of Highfly Corporation on Roblox! Collaborate with others, participate in events, and showcase your skills in the game.</p>
+    <a href="https://www.roblox.com/communities/35000132/HighFly-Corporation#!/about" class="button" onclick="playClickSound()">Visit Roblox Group</a>
+  </section>
+
+  <section>
+    <h2>Subscribe to Our YouTube Channel</h2>
+    <p>Don't miss out on the latest updates and exclusive content from Highfly. jump Right into tutorials, group highlights, and behind-the-scenes features today!</p>
+    <a href="https://www.youtube.com/@Highfly-RBLX" class="button" onclick="playClickSound()">Visit YouTube Channel</a>
+  </section>
+
+  <footer>
+    <p>© 2025 Highfly Corporation. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const music = document.getElementById('background-music');
+    const clickSound = document.getElementById('click-sound');
+    const muteBtn = document.getElementById('mute-btn');
+
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        music.volume = 1;
+        music.play().catch(e => console.log("Autoplay blocked:", e));
+      }, 1000);
+    });
+
+    function playClickSound() {
+      clickSound.currentTime = 0;
+      clickSound.play();
+    }
+
+    function toggleMute() {
+      if (music.volume > 0) {
+        fadeOut(music);
+        muteBtn.textContent = '🔇';
+      } else {
+        music.volume = 1;
+        muteBtn.textContent = '🔊';
+      }
+    }
+
+    function fadeOut(audio) {
+      const fadeAudio = setInterval(() => {
+        if (audio.volume > 0.05) {
+          audio.volume -= 0.05;
+        } else {
+          audio.volume = 0;
+          clearInterval(fadeAudio);
+        }
+      }, 100);
+    }
+  </script>
+</body>
+</html>
